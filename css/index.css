@@ -1,0 +1,51 @@
+.font-20 {
+    font-size : 20px !important;
+}
+.font-22 {
+    font-size : 22px !important;
+}
+.btn, .rounded {
+    border-radius : 20px !important;
+}
+.calculator {
+    height     : 415px !important;
+    min-height : 415px !important;
+    max-height : 415px !important;
+}
+.operations {
+    overflow-x     : scroll !important;
+    -ms-overflow-x : scroll !important;
+    white-space    : nowrap !important;
+    max-width      : 220px !important;
+}
+::-webkit-scrollbar {
+    height : 0 !important;
+}
+.h-80 {
+    height     : 80% !important;
+    min-height : 80% !important;
+}
+.bg-custom {
+    background : linear-gradient(114deg, rgba(43, 70, 171, 1) -1%, rgba(43, 70, 171, 1) 19%, rgba(0, 2, 159, 1) 80%, rgba(0, 2, 159, 1) 101%) !important;
+}
+.btn-fixed {
+    max-width : 50px !important;
+    min-width : 50px !important;
+}
+.animate {
+    transition         : all 0.1s !important;
+    -webkit-transition : all 0.1s !important;
+    -moz-transition    : all 0.1s !important;
+    -o-transition      : all 0.1s !important;
+}
+.action-button {
+    position : relative !important;
+    float    : left !important;
+}
+.action-button:active {
+    transform         : translate(0, 5px) !important;
+    -webkit-transform : translate(0, 5px) !important;
+    -moz-transform    : translate(0, 5px) !important;
+    -ms-transform     : translate(0, 5px) !important;
+    -o-transform      : translate(0, 5px) !important;
+}
