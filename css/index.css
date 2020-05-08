@@ -4,19 +4,23 @@
 .font-22 {
     font-size : 22px !important;
 }
-.btn, .rounded {
+.font-18 {
+    font-size : 18px !important;
+}
+.btn, .rounded, .modal-content {
     border-radius : 20px !important;
 }
 .calculator {
-    height     : 415px !important;
-    min-height : 415px !important;
-    max-height : 415px !important;
+    height     : 420px !important;
+    min-height : 420px !important;
+    max-height : 420px !important;
 }
-.operations {
+#operations {
     overflow-x     : scroll !important;
     -ms-overflow-x : scroll !important;
     white-space    : nowrap !important;
-    max-width      : 220px !important;
+    max-width      : 170px !important;
+    min-width      : 170px !important;
 }
 ::-webkit-scrollbar {
     height : 0 !important;
@@ -32,6 +36,10 @@
     max-width : 50px !important;
     min-width : 50px !important;
 }
+.btn-fixed-sm {
+    max-width : 40px !important;
+    min-width : 40px !important;
+}
 .animate {
     transition         : all 0.1s !important;
     -webkit-transition : all 0.1s !important;
@@ -39,8 +47,7 @@
     -o-transition      : all 0.1s !important;
 }
 .action-button {
-    position : relative !important;
-    float    : left !important;
+    float : left !important;
 }
 .action-button:active {
     transform         : translate(0, 5px) !important;

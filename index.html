@@ -7,18 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Calculator provides simple functions in a beautifully designed app">
     <meta property="og:title" content="Calculator App">
-    <meta property="og:url" content="http://calculator-app.github.io/">
+    <meta property="og:url" content="https://calculator-app.github.io/">
     <meta property="og:description" content="Calculator provides simple functions in a beautifully designed app">
     <meta property="og:image" content="img/calculator-300.png">
     <!-- App Logo -->
     <link rel="apple-touch-icon" href="img/calculator-300.png">
     <link rel="icon" href="img/calculator-64.png">
 
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
+<div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content py-3 px-2 position-relative">
+            <button type="button" class="btn btn-fixed-sm btn-danger animate action-button shadow position-absolute"
+                    style="right: 5px; top: 5px" data-dismiss="modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="mx-auto" id="no_history">
+                <p>No History</p>
+            </div>
+<!--            <div class="mb-2 ml-2">-->
+<!--                <span><kbd>89 + 32</kbd> = <kbd>121</kbd></span>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid vh-100 bg-custom">
 
@@ -27,88 +48,105 @@
         <div>
             <div class="bg-light rounded p-3 calculator mt-5">
 
-                <div class="mb-2 operations text-center mx-auto">
-                    <div class="d-inline-block">
-                        24+24-24+24+24-24+24+24-24+24
-                    </div>
+                <div class="d-flex justify-content-around mb-2">
+                    <div class="d-inline-block my-auto font-18" id="operations"></div>
+                    <a href="javascript:void(0)" role="button"
+                       class="btn btn-fixed btn-light animate action-button shadow ml-2"
+                       data-toggle="modal" data-target="#history">
+                        <i class="fas fa-history fa-fw"></i>
+                    </a>
                 </div>
 
                 <div class="my-3 d-flex justify-content-between">
-                    <div class="result font-22 text-center font-weight-bold mx-auto">
-                        242424242
-                    </div>
-                    <button class="btn btn-fixed btn-danger animate action-button shadow">
-                        <i class="fas fa-backspace"></i>
-                    </button>
+                    <div class="result font-22 text-center font-weight-bold mx-auto" id="result"></div>
+                    <a href="javascript:void(0)" class="btn btn-fixed btn-danger animate action-button shadow"
+                       id="delete">
+                        <i class="fas fa-backspace fa-fw"></i>
+                    </a>
                 </div>
 
                 <div>
-
                     <div class="btn-group d-flex justify-content-around my-3" role="group">
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             7
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             8
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             9
                         </button>
                         <button type="button"
-                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20">
+                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20"
+                                data-type="operator">
                             /
                         </button>
                     </div>
 
                     <div class="btn-group d-flex justify-content-around my-3" role="group">
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             4
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             5
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             6
                         </button>
                         <button type="button"
-                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20">
+                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20"
+                                data-type="operator">
                             X
                         </button>
                     </div>
 
                     <div class="btn-group d-flex justify-content-around my-3" role="group">
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             1
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             2
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             3
                         </button>
                         <button type="button"
-                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20">
+                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20"
+                                data-type="operator">
                             -
                         </button>
                     </div>
 
                     <div class="btn-group d-flex justify-content-around my-3" role="group">
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             0
                         </button>
-                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20">
+                        <button type="button" class="btn btn-fixed btn-light animate action-button shadow ml-2 font-20"
+                                data-type="number">
                             .
                         </button>
+                        <a href="javascript:void(0)"
+                           class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20" id="clear">CA</a>
                         <button type="button"
-                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20">C
-                        </button>
-                        <button type="button"
-                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20">+
+                                class="btn btn-fixed btn-danger animate action-button shadow ml-2 font-20"
+                                data-type="operator">+
                         </button>
                     </div>
 
                     <div class="my-3">
-                        <button class="btn btn-light animate action-button btn-block shadow font-20">=</button>
+                        <button class="btn btn-light animate action-button btn-block shadow font-20"
+                                data-type="operator">=
+                        </button>
                     </div>
 
                 </div>
@@ -133,14 +171,16 @@
     </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/sweetalert2@8.js"></script>
-<script type="module" defer src="js/app.js"></script>
-<script>
-    document.addEventListener('gesturestart', function (e) {
+<script type="module" defer>
+    import Page       from './js/page.js';
+    import Calculator from './js/calculator.js';
+
+    // Disable zoom feature in mobile browsers
+    document.addEventListener('gesturestart', e => {
         e.preventDefault();
     });
+
+    new Page(new Calculator()).eventListeners();
 </script>
 </body>
 </html>
