@@ -1,12 +1,6 @@
 # Calculator App
 Calculator provides simple functions in a beautifully designed app.
 
-## Table of Content
-* [Technologies Used](#technologies-used)
-* [App Functions](#app-functions)
-* [App Limitation](#app-Limitation)
-* [TODO](#todo)
-
 ## Technologies Used
 * HTML5
 * CSS3
